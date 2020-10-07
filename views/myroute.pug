@@ -1,0 +1,30 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="../style.css")
+  body
+    div
+      h1 Params:
+      div
+        ul
+          each val, key in param
+            li= key + ': ' + val
+      br
+      h1 Queries:
+      div
+        ul
+          each val, key in query
+            li= key + ': ' + val
+      br
+      h1 Headers:
+      div 
+        ul
+          each val, key in headers
+            li= key + ': ' + val
+      br
+      h1 Cookies:
+      div 
+        ul
+          each val, key in cookies
+            li= key + ': ' + val
+      br

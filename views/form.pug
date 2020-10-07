@@ -1,0 +1,28 @@
+doctype html
+head
+  link(rel="stylesheet" type="text/css" href="../style.css")
+form(action='/form' method='POST')
+  main
+    div.container
+      label(for='username') Username
+      br
+      input#username(type='text' name='username')
+      br
+      label(for='password') Password
+      br
+      input#password(type='password' name='password')
+      br
+      label(for='gender') Gender
+      br
+      input#male(type='radio' name='gender' value='male')
+      label(for='male') Male
+      br
+      input#female(type='radio' name='gender' value='female')
+      label(for='female') Female
+      br
+      br
+      input#agree(type='checkbox' name='agree' value='true')
+      label(for='agree')  I agree
+      br
+      br
+      input(type='submit' value='Submit')
