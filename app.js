@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
+const port = 8080;
 
 const app = express();
 
@@ -42,7 +43,7 @@ app.get("/myroute/:param", function (req, res) {
 });
 
 app.get("/form", function (req, res) {
-  res.render('form')
+  res.render('form');
 });
 
 const users = [];
@@ -65,14 +66,11 @@ app.get("/result", function (req, res) {
 app.get("/api/time", function (req, res) {
   const cookie = req.cookies.time;
   if (cookie) {
-    res.send(cookie);
+    res.send(JSON.stringify({time: cookie}));
   }
   else{
-    res.send("No Time Cookie")
+    res.status(404).send("No Time Cookie");
   }
-
-  //const time = (new Date()).toLocaleTimeString("hy-AM");
-  //res.send(JSON.stringify({time}));
 });
 
 app.get("/api/users", function (req, res) {
@@ -92,7 +90,4 @@ app.post("/api/users", function (req, res) {
   res.send(users);
 });
 
-const PORT = 8080;
-app.listen(PORT, () => {
-  console.log("asd");
-});
+app.listen(port);
